@@ -8,7 +8,7 @@ import {
 export default function counter(state=0, action:any){
     switch (action.type) {
         case INCREMENT_COUNTER:
-            return state + 2;
+            return state + 1;
             break;
         case DECREMENT_COUNTER:
             return state - 1;

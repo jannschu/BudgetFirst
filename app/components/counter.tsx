@@ -11,7 +11,7 @@ class Counter extends Component<CounterProps, any> {
     const { increment, decrement, counter } = this.props
     return (
       <p>
-        Clicked: {counter} times
+        Click: {counter} times
         {' '}
         <button onClick={increment}>+</button>
         {' '}
