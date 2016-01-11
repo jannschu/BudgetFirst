@@ -1,5 +1,15 @@
 // This is a hackish prototype.
 
+function copy(obj: Object) {
+    var copy = {};
+    for (var attr in obj) {
+        if (obj.hasOwnProperty(attr)) {
+            copy[attr] = obj[attr];
+        }
+    }
+    return copy;
+}
+
 class VectorClock {
     private vector: {[id: string]: number};
     
@@ -211,9 +221,6 @@ class SyncEventManager {
     sync() {
         var devices: string[] = [this.deviceId];
         
-        /** Propagte my own operations **/
-        this.flushCache();
-        
         /** Get all relevant operations from devices **/
         var alreadyAppliedOps = dropbox[this.deviceId].map((op) => {
             return op.id;
@@ -337,7 +344,7 @@ class Device {
         this.syncManager = new SyncEventManager(name);
         this.syncManager.eventCallback = (op: Operation) => {
             if (op instanceof CreateOperation) {
-                this.localStore[op.data.id] = op.data;
+                this.localStore[op.data.id] = copy(op.data);
             }
             else if (op instanceof UpdateOperation) {
                 this.localStore[op.entity_id][op.key] = op.data;
@@ -352,7 +359,7 @@ class Device {
             'name': name, 'budget': budget,
             'id': id};
         this.localStore[Device.entityIdCount] = category;
-        var createOperation = new CreateOperation(this.name, category);
+        var createOperation = new CreateOperation(this.name, copy(category));
         this.syncManager.syncNewOperation(createOperation);
         return id;
     }
@@ -364,7 +371,7 @@ class Device {
             'categoryId': categoryId, 'amount': amount,
             'id': id};
         this.localStore[Device.entityIdCount] = transaction;
-        var createOperation = new CreateOperation(this.name, transaction);
+        var createOperation = new CreateOperation(this.name, copy(transaction));
         this.syncManager.syncNewOperation(createOperation);
         return id;
     }
@@ -375,7 +382,7 @@ class Device {
         this.syncManager.syncNewOperation(updateOperation);
     }
     
-    sync() {
+    pull() {
         this.syncManager.sync();
     }
     
