@@ -1,6 +1,5 @@
 {
     "compilerOptions": {
-        "outDir": "dist",
         "target": "es6",
         "module": "commonjs",
         "jsx": "react",
@@ -15,10 +14,7 @@
     "filesGlob": [
         "./**/*.ts",
         "./**/*.tsx",
-        "!./node_modules/**/*"
-    ],
-    "files": [
-
-        "typings/tsd.d.ts"
+        "!./node_modules/**/*.ts",
+        "!./typings/**/*.ts"
     ]
 }

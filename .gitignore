@@ -1,3 +1,18 @@
+# Logs
+*.log
+
+# Copied version of tsconfig.dev.json
+tsconfig.json
+
+# Dependency directory
 node_modules/
-dist/
-typings/
+
+# App packaged
+dist
+release
+
+# TypeScrtip definitions (tsd)
+typings
+
+# OSX
+.DS_Store

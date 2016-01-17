@@ -1,9 +1,9 @@
+/**
+ *  This is run by electron.
+ */
 const electron = require('electron');
 const app = electron.app;  // Module to control application life.
 const BrowserWindow = electron.BrowserWindow;  // Module to create native browser window.
-
-// Report crashes to our server.
-electron.crashReporter.start();
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -24,17 +24,11 @@ app.on('ready', function() {
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 800, height: 600});
 
-  // and load the index.html of the app.
-
-  if (process.env.HOT) {
-    mainWindow.loadURL('file://' + __dirname + '/app/hot-dev-app.html');
-  } else {
-    mainWindow.loadURL('file://' + __dirname + '/app/app.html');
-  }
-
+  // and load the start page of the app.
+  mainWindow.loadURL('file://' + __dirname + '/app/app.html');
 
   // Open the DevTools.
-  //mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {
