@@ -9,11 +9,15 @@ It is currently in development. To check out or help contribute to the planning 
 
 ## Development
 
+The app is written in [TypeScript](http://www.typescriptlang.org) which compiles to JavaScript. It runs in [Electron](http://electron.atom.io) using the [React framework](http://facebook.github.io/react/) with [Redux](http://redux.js.org). Tests are run with [mocha](http://mochajs.org) (and [should.js](http://shouldjs.github.io)).
+
+### Workflow
+
 After cloning do
 ```
 npm install
 ```
-Then run
+We use the hot-loading mechanism of _webpack_ and _react_. Run
 ```
 npm run hot-server
 ```
@@ -22,9 +26,12 @@ and in a new tab
 npm run hot-electron
 ```
 
+### Notes
+- If you have added a new TypeScript file, call `npm run create-tsconfig` to create a new `.tsconfig`.
+- Consider using [EditorConfig](http://editorconfig.org/#download).
+
 ### TODO (for development environment)
 
 - CSS/Images boilerplate (with webpack)
 - CI
 - License, authors, description
-- `.editorconfig` and _linting_

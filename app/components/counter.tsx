@@ -1,23 +1,22 @@
-import {Component} from 'react';
-import * as React from 'react';
+import * as React from "react";
 
-interface CounterProps{
-    increment: any;
-    decrement: any;
-    counter: number;
+interface ICounterProps {
+  increment: any;
+  decrement: any;
+  counter: number;
 }
-class Counter extends Component<CounterProps, any> {
-  render() {
-    const { increment, decrement, counter } = this.props
+class Counter extends React.Component<ICounterProps, any> {
+  public render() {
+    const { increment, decrement, counter } = this.props;
     return (
       <p>
         Click: {counter} times
-        {' '}
+        {" "}
         <button onClick={increment}>+</button>
-        {' '}
+        {" "}
         <button onClick={decrement}>-</button>
       </p>
-    )
+    );
   }
 }
 

@@ -10,7 +10,7 @@
     "url": "https://github.com/BudgetFirst/BudgetFirst.git"
   },
   "scripts": {
-    "test": "electron-mocha test/**/*.ts",
+    "test": "tslint -c config/tslint.json app/**/{*.tsx,*.ts} test/**/{*.tsx,*.ts} && electron-mocha test/**/*.ts",
     "postinstall": "npm-run-all postinstall:*",
     "postinstall:tsd": "tsd --config config/tsd.json install && mv config/typings typings",
     "postinstall:tsconfig": "npm run create-tsconfig",
@@ -39,6 +39,7 @@
     "ts-node": "^0.5.5",
     "tsconfig-glob": "^0.4.0",
     "tsd": "^0.6.5",
+    "tslint": "^3.2.1",
     "typescript": "^1.7.5",
     "webpack": "^1.12.10",
     "webpack-dev-server": "^1.14.1"

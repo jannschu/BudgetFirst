@@ -5,7 +5,7 @@ const webpack = require('webpack');
 
 const config = {
   entry: {
-    app: ['./app/main.tsx']    
+    app: ['./app/main.tsx']
   },
   target: 'electron',
   output: {
@@ -20,25 +20,24 @@ const config = {
   devtool: 'source-map',
   module: {
     loaders: [
-      { test: /\.tsx?$/, loaders: ['babel', 'ts-loader'] }
+      {test: /\.tsx?$/, loaders: ['babel', 'ts-loader']}
     ]
   },
-  plugins: [
-  ]
+  plugins: []
 };
 
 if (process.env.HOT) {
-    config.debug = true;
-    config.devtool = 'cheap-module-eval-source-map';
-    config.plugins.unshift(
-        new webpack.NoErrorsPlugin(),
-        new webpack.DefinePlugin({
-            '__DEV__': true,
-            'process.env': {
-                'NODE_ENV': JSON.stringify('development')
-            }
-        })
-    );
+  config.debug = true;
+  config.devtool = 'cheap-module-eval-source-map';
+  config.plugins.unshift(
+    new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      '__DEV__': true,
+      'process.env': {
+        'NODE_ENV': JSON.stringify('development')
+      }
+    })
+  );
 }
 
 module.exports = config;

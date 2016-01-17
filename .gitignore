@@ -1,6 +1,8 @@
 # Logs
 *.log
 
+.idea/
+
 # Copied version of tsconfig.dev.json
 tsconfig.json
 

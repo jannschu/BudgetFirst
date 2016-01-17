@@ -1,20 +1,14 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 
 import {
   Store,
-  compose,
   createStore,
-  bindActionCreators,
-  combineReducers
-} from 'redux';
-import {
-  connect,
-  Provider
-} from 'react-redux';
-import {rootReducer} from './reducers/rootReducer'
+} from "redux";
+import {Provider} from "react-redux";
+import {rootReducer} from "./reducers/rootReducer";
 
-import App from './containers/App';
+import App from "./containers/app";
 // import { rootReducer } from './reducers/rootReducer';
 
 const initialState = {};
@@ -25,5 +19,5 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
