@@ -1,0 +1,4 @@
+--reporter progress
+--ui bdd
+--harmony
+--require ts-node/register

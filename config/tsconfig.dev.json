@@ -15,6 +15,7 @@
         "./**/*.ts",
         "./**/*.tsx",
         "!./node_modules/**/*.ts",
-        "!./typings/**/*.ts"
+        "!./typings/*/*.ts",
+        "./typings/tsd.d.ts"
     ]
 }

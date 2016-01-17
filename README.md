@@ -25,7 +25,6 @@ npm run hot-electron
 ### TODO (for development environment)
 
 - CSS/Images boilerplate (with webpack)
-- Testing
 - CI
 - License, authors, description
 - `.editorconfig` and _linting_
